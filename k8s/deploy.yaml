@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sk021-myapp
+  namespace: skala-practice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sk021-myapp
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '8080'
+        prometheus.io/path: '/actuator/prometheus'
+        update: 745ea217
+      labels:
+        app: sk021-myapp
+    spec:
+      serviceAccountName: default
+      containers:
+      - name: myapp
+        image: amdp-registry.skala-ai.com/skala25a/sk021-myapp:1.0.0
+        imagePullPolicy: Always
+        env:
+        - name: USER_NAME
+          value: sk021
+        - name: NAMESPACE
+          value: skala-practice
+        - name: SPRING_PROFILES_ACTIVE  
+          value: "prod"  
