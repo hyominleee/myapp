@@ -6,7 +6,7 @@ pipeline {
     GIT_URL                = 'https://github.com/hyominleee/myapp'
     GIT_BRANCH             = 'main'            // 또는 main
     GIT_ID                 = 'skala-github-id'   // GitHub PAT credential ID
-    IMAGE_NAME             = 'sk021-myfirst-api-server'    
+    IMAGE_NAME             = 'sk021-myapp'    
     // =======================
     IMAGE_TAG              = '1.0.0'    
     IMAGE_REGISTRY_URL     = 'amdp-registry.skala-ai.com'
